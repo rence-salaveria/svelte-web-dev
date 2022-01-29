@@ -4,17 +4,52 @@
     const title: String = 'Todos'
 </script>
 
+<style>
+    .todos {
+        width: 100%;
+        max-width: 42rem;
+        margin: 4rem auto 0 auto
+    }
+
+    .new {
+        margin: 0 0 0.5rem 0;
+    }
+
+    .new input {
+        font-size: 28px;
+        width: 100%;
+        padding: 0.3em 1em 0.3em 1em;
+        box-sizing: border-box;
+        background: rgba(255, 255, 255, 0.05);
+        text-align: center;
+        border-radius: 8px;
+    }
+
+    .todos :global(input) {
+        border: 1px transparent;
+    }
+
+    .todos :global(input:focus-visible) {
+        box-shadow: inset 1px 1px 6px rgba(0, 0, 0, 0.1);
+        border: 1px solid #ff3e00 !important;
+        outline: none;
+    }
+</style>
+
 <svelte:head>
-    {title}
+    <title>{title}</title>
 </svelte:head>
 
-<h1>{title}</h1>
+<div class="todos">
+    <h1>{title}</h1>
+    
+    <!-- Create a Todo form -->
+    <form action="" class="new">
+        <input type="text" aria-label="Add a Todo" placeholder="+ tap to add a Todo"/>
+    </form>
 
-<!-- Create a Todo form -->
-<form action="">
-    <input type="text" aria-label="Add a Todo" placeholder="+ tap to add a Todo"/>
-</form>
+    <TodoItem/>
+    <TodoItem/>
+    <TodoItem/>
+</div>
 
-<TodoItem/>
-<TodoItem/>
-<TodoItem/>
