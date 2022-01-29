@@ -1,2 +1,20 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+    import TodoItem from '$lib/components/TodoItem.svelte';
+
+    const title: String = 'Todos'
+</script>
+
+<svelte:head>
+    {title}
+</svelte:head>
+
+<h1>{title}</h1>
+
+<!-- Create a Todo form -->
+<form action="">
+    <input type="text" aria-label="Add a Todo" placeholder="+ tap to add a Todo"/>
+</form>
+
+<TodoItem/>
+<TodoItem/>
+<TodoItem/>
